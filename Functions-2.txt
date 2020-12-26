@@ -1,0 +1,15 @@
+iex(1)> fizzbuzz = fn
+...(1)>     0, 0, _ -> "FizzBuzz"
+...(1)>     0, _, _ -> "Fizz"
+...(1)>     _, 0, _ -> "Buzz"
+...(1)>     _, _, x -> x
+...(1)> end
+#Function<42.79398840/3 in :erl_eval.expr/5>
+iex(2)> fizzbuzz.(0, 0, 1)
+"FizzBuzz"
+iex(3)> fizzbuzz.(0, 1, 1)
+"Fizz"
+iex(4)> fizzbuzz.(1, 0, 1)
+"Buzz"
+iex(5)> fizzbuzz.(1, 1, 1)
+1
