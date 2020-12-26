@@ -1,0 +1,10 @@
+iex(1)> prefix = fn str1 ->
+...(1)>     fn str2 -> str1 <> " " <> str2 end
+...(1)> end
+#Function<44.79398840/1 in :erl_eval.expr/5>
+iex(2)> mrs = prefix.("Mrs")
+#Function<44.79398840/1 in :erl_eval.expr/5>
+iex(3)> mrs.("Smith")
+"Mrs Smith"
+iex(4)> prefix.("Elixir").("Rocks")
+"Elixir Rocks"
