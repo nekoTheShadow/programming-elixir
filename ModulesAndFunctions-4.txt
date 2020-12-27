@@ -1,0 +1,9 @@
+$ iex sum.exs 
+Erlang/OTP 23 [erts-11.1.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1]
+
+Interactive Elixir (1.11.2) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> Sum.sum(1)
+1
+iex(2)> Sum.sum(10)
+55
+iex(3)> 
