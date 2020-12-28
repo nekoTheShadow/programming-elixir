@@ -1,3 +1,37 @@
+defmodule Times do
+  def double(n) do
+    n * 2
+  end
+
+  def triple(n) do
+    n * 3
+  end
+
+  def quadruple(n) do
+    double(double(n))
+  end
+end
+
+defmodule Sum do
+  def sum(1) do
+    1
+  end
+
+  def sum(n) do
+    sum(n-1) + n
+  end
+end
+
+defmodule Gcd do
+  def gcd(n, 0) do
+    n
+  end
+
+  def gcd(n, m) do
+    gcd(m, rem(n, m))
+  end
+end
+
 defmodule Chop do
   def guess(actual, a..b) do
     mid = div(a+b, 2)
