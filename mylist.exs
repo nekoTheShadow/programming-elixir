@@ -22,4 +22,12 @@ defmodule MyList do
   def max([head | tail]) do
     max(head, max(tail))
   end
+
+  def caeser([], n) do
+    []
+  end
+
+  def caeser([head | tail], n) when ?a <= head and head <= ?z do
+    [?a + rem((head - ?a + n), 26) | caeser(tail, n)]
+  end
 end
