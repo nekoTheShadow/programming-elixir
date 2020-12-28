@@ -16,4 +16,12 @@ defmodule StringsAndBinaries do
 
     apply(Kernel, op, [n1, n2])
   end
+
+  def center(words) do
+    maxlen = words |> Enum.map(&String.length/1) |> Enum.max
+    for word <- words do
+      len = div(maxlen-String.length(word), 2)
+      IO.puts(String.duplicate(" ", len) <> word)
+    end
+  end
 end
