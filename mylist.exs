@@ -23,7 +23,7 @@ defmodule MyList do
     max(head, max(tail))
   end
 
-  def caeser([], n) do
+  def caeser([], _) do
     []
   end
 
