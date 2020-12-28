@@ -30,4 +30,12 @@ defmodule MyList do
   def caeser([head | tail], n) when ?a <= head and head <= ?z do
     [?a + rem((head - ?a + n), 26) | caeser(tail, n)]
   end
+
+  def span(from, to) when from > to do
+    []
+  end
+
+  def span(from, to) do
+    [from | span(from+1, to)]
+  end
 end
