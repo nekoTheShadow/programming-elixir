@@ -7,4 +7,12 @@ defmodule ControlFlow do
       [_, _] -> Integer.to_string(n)
     end
   end
+
+  def ok!({:ok, data}) do
+    data
+  end
+
+  def ok!(not_ok) do
+    raise "not ok"
+  end
 end
