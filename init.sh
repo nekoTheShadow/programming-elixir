@@ -1,7 +1,7 @@
 #!/bin/bash
 
-all_exs=$(mktemp)
-trap "rm -v ${all_exs}" EXIT
+all_ex=$(mktemp)
+trap "rm -v ${all_ex}" EXIT
 
-cat *.exs >> ${all_exs}
-iex ${all_exs}
+cat *.ex >> ${all_ex}
+iex ${all_ex}
