@@ -71,4 +71,20 @@ defmodule MyEnum do
   defp reverse([head | tail]) do
     reverse(tail) ++ [head]
   end
+
+  def flatten(list) do
+    flatten(list, [])
+  end
+
+  defp flatten([], acc) do
+    acc
+  end
+
+  defp flatten([head | tail], acc) when is_list(head) do
+    flatten(head, flatten(tail, acc))
+  end
+
+  defp flatten([head | tail], acc) when not is_list(head) do
+    [head | flatten(tail, acc)]
+  end
 end
