@@ -132,7 +132,7 @@ defmodule MyEnum do
 end
 
 defmodule Order do
-  def apply_tax(tax_rates, orders) do
+  def sales_tax(tax_rates, orders) do
     for order <- orders do
       ship_to = Keyword.get(order, :ship_to)
       tax_rate = Keyword.get(tax_rates, ship_to, 0)
@@ -153,7 +153,7 @@ defmodule Order do
       [id: 129, ship_to: :CA, net_amount: 102.00],
       [id: 120, ship_to: :NC, net_amount:  50.00]
     ]
-    apply_tax(tax_rates, orders)
+    sales_tax(tax_rates, orders)
   end
 end
 
