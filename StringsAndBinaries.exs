@@ -4,6 +4,16 @@ defmodule StringsAndBinaries do
   end
 
   def anagram?(word1, word2) do
-    Enum.sort(String.to_charlist(word1)) === Enum.sort(String.to_charlist(word2))
+    Enum.sort(word1) === Enum.sort(word2)
+  end
+
+  def calculate(statement) do
+    x = Enum.find_index(statement, &(&1 in [?+, ?-, ?*, ?/]))
+
+    op = Enum.slice(statement, x..x) |> List.to_atom()
+    n1 = Enum.slice(statement, 0..x-1) |> List.to_integer()
+    n2 = Enum.slice(statement, x+1..length(statement)-1) |> List.to_integer()
+
+    apply(Kernel, op, [n1, n2])
   end
 end
