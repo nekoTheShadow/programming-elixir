@@ -24,4 +24,14 @@ defmodule StringsAndBinaries do
       IO.puts(String.duplicate(" ", len) <> word)
     end
   end
+
+  def capitalize_sentences(sentences) do
+    String.split(sentences, " ")
+    |> Enum.map(&(capitalize &1))
+    |> Enum.join(" ")
+  end
+
+  defp capitalize(<<head::utf8, tail::binary>>) do
+    String.upcase(<<head::utf8>>) <> String.downcase(tail)
+  end
 end
