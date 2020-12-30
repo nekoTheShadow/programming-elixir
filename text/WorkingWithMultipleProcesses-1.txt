@@ -1,0 +1,6 @@
+{4086, "Result is 10"}
+{5330, "Result is 100"}
+{8326, "Result is 1000"}
+{57181, "Result is 10000"}
+{1830341, "Result is 400000"}
+{4938237, "Result is 1000000"}
