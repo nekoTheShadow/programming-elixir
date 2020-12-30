@@ -1,4 +1,4 @@
-defmodule WorkingWithMultipleProcesses do
+defmodule WorkingWithMultipleProcesses2 do
   @moduledoc """
   - プロセスから戻ってくる返事の順序は理論的に決定的であるか? 実際は?
     - 実装はrun1
