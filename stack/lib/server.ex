@@ -13,8 +13,12 @@ defmodule Stack.Server do
     GenServer.cast __MODULE__, {:push, value}
   end
 
-  def init(stack) do
-    {:ok, stack}
+  def kill() do
+    GenServer.cast __MODULE__, {:kill}
+  end
+
+  def init(_) do
+    {:ok, Stack.Stash.get()}
   end
 
   def handle_call(:pop, _from, stack) do
@@ -26,7 +30,11 @@ defmodule Stack.Server do
     {:noreply, [value | stack]}
   end
 
-  def terminate(reason, state) do
-    IO.puts "TERMINATE: reason=#{inspect reason}, state=#{inspect state}"
+  def handle_cast({:kill}, _stack) do
+    raise "KILL"
+  end
+
+  def terminate(_reason, stack) do
+    Stack.Stash.update(stack)
   end
 end
