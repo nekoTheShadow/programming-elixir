@@ -1,9 +1,9 @@
 defmodule Stack.Application do
   use Application
 
-  def start(_type, _args) do
+  def start(_type, stack) do
     children = [
-      {Stack.Stash, ["a", "b", "c"]},
+      {Stack.Stash, stack},
       {Stack.Server, []}
     ]
 
