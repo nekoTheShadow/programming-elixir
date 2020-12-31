@@ -1,0 +1,3 @@
+Tracer.dump_dfnは関数名と引数を文字列化するものだが、inspectを使って文字列化するので、
+評価後の値をTracer.dump_dfnの引数とする必要がある。
+一方、resultには評価後の値が格納されているので、unquoteする必要がない。
