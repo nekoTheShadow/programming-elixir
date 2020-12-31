@@ -1,0 +1,6 @@
+https://github.com/elixir-lang/elixir/blob/master/lib/elixir/lib/io/ansi.ex
+
+white()やgreen_background()といった関数を呼び出すと、関数名に応じたエスケープシーケンスを返す。
+ただし、white()やgreen_background()といった関数はIO.ANSIモジュールに直接定義されているのではなく、
+defsequenceというマクロが活用されている。
+
