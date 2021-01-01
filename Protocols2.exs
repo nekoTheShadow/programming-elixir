@@ -1,3 +1,4 @@
+# Protocols1.exsよりコピペ
 defprotocol Caesar do
   def encrypt(string, shift)
   def rot13(string)
@@ -32,18 +33,19 @@ defimpl Caesar, for: List do
   end
 end
 
-ExUnit.start()
 
-defmodule TestCaesar do
-  use ExUnit.Case
-
-  test "Caesar.encryptはシーザー暗号を実装する" do
-    assert Caesar.encrypt("abc'xyz", 2) === "cde'zab"
-    assert Caesar.encrypt('abc\'xyz', 2) === 'cde\'zab'
+defmodule Main do
+  def run() do
+    words = "Protocols2.txt" |> readline() |> MapSet.new()
+    rot13s = words |> Enum.map(&Caesar.rot13/1) |> MapSet.new()
+    MapSet.intersection(words, rot13s) |> Enum.each(&IO.puts/1)
   end
 
-  test "Caesar.rot13はROT13を実装する。" do
-    assert Caesar.rot13("abc'xyz") === "nop'klm"
-    assert Caesar.rot13('abc\'xyz') === 'nop\'klm'
+  def readline(path) do
+    File.stream!(path)
+      |> Enum.map(&String.trim/1)
+      |> Enum.map(&String.downcase/1)
   end
 end
+
+Main.run()
